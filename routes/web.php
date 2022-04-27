@@ -19,6 +19,8 @@ use App\Http\Controllers\eCommerceController;
 */
 
 Route::get('/', [eCommerceController::class, 'index'])->name('home');
+Route::get('/search/category/{category}', [eCommerceController::class, 'searchCategory'])->name('search-category');
+Route::get('/search/tag/{tag}', [eCommerceController::class, 'searchTag'])->name('search-tag');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

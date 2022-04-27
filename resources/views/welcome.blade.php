@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
-    <header></header>
-    <main>
+@extends('layouts.store')
+
+    @section('content')
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
               <div class="col-lg-6 col-md-8 mx-auto">
@@ -20,21 +12,23 @@
                 </p>
               </div>
             </div>
-          </section>
+        </section>
 
-          <section class="container">
-                <div class="row">
-                    @foreach ($products as $product)
-                    <div class="col-4">
-                        <img style="width: 200px" src="{{ asset($product->image)}}">
-                        <p>{{$product->name}}</p>
-                        <p>R$ {{$product->price}}</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                        <a href="#" class="btn btn-secondary">Visualizar</a>
+        <section class="container">
+            <div class="row">
+                @foreach ($products as $product)
+                    <div class="mx-auto col-sm-10 col-md-6 col-lg-3">
+                        <img src="{{ asset($product->image) }}" class="img-fluid">
+                        <span class="d-block h6 text-center mt-3">{{ $product->name }}</span>
+                        <div class="text-center">
+                            <span class="text-muted">R$ {{ $product->price }}</span>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-primary btn-sm">Visualizar</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Comprar</a>
+                        </div>
                     </div>
-                    @endforeach
-                </div>
-          </section>
-    </main>
-</body>
-</html>
+                @endforeach
+            </div>
+        </section>
+    @endsection
