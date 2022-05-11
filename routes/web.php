@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\eCommerceController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/cart', [CartController::Class, 'index'])->name('cart.index');
+});
 
 
 Route::middleware(['auth','admin'])->group(function(){
