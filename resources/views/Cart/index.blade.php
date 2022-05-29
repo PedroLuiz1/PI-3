@@ -1,5 +1,5 @@
-@extends('layouts.app');
-@section('content');
+@extends('layouts.app')
+@section('content')
 
 <section class="container mt-5">
     <table class="table">

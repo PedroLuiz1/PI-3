@@ -21,8 +21,15 @@
             </div>
             <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
                 @csrf
-                <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
             </form>
+            @foreach($product->Sizes as $size)
+                @if($size->stock > 0)
+                <form action="{{ route('cart.store', [$product->id, $size->id]) }}" method="POST" style="display:inline">
+                    @csrf
+                    <button type="submit" class="btn btn-primary btn-sm">{{ $size->name}}</button>
+                </form>
+                @endif
+            @endforeach
             <div class="text-center mt-5">
                 <h3>Tags</h3>
                 @foreach($product->Tags as $tag)
