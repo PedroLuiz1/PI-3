@@ -19,9 +19,6 @@
             <div class="text-center">
                 <span>{{ $product->price }}</span>
             </div>
-            <form action="{{ route('cart.store', $product->id) }}" method="POST" style="display:inline">
-                @csrf
-            </form>
             @foreach($product->Sizes as $size)
                 @if($size->stock > 0)
                 <form action="{{ route('cart.store', [$product->id, $size->id]) }}" method="POST" style="display:inline">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Size;
 
 
 class CartController extends Controller
@@ -14,12 +15,13 @@ class CartController extends Controller
         return view('cart.index')->with('itens', $itens);
     }
 
-    public function store(Product $product){
+    public function store(Product $product, Size $size){
         $user = auth()->user();
 
         $cart = Cart::where([
             'user_id' => $user->id,
-            'product_id' => $product->id])->first();
+            'product_id' => $product->id,
+            'size_id' => $size->id])->first();
 
         //Se o produto já estiver no carrinho
         if($cart){
@@ -30,6 +32,7 @@ class CartController extends Controller
             $cart = Cart::create([
                 'user_id' => $user->id,
                 'product_id' => $product->id,
+                'size_id' => $size->id,
                 'units' => 1
             ]);
         }
@@ -37,11 +40,12 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Product $product){
+    public function destroy(Product $product, Size $size){
         $user = Auth()->user();
         $cart = Cart::where([
             'user_id' => $user->id,
-            'product_id' => $product->id])->first();
+            'product_id' => $product->id,
+            'size_id' => $size->id])->first();
 
         if(!$cart){
             session()->flash('error', 'O produto ('.$product->name.') não está no carrinho.');

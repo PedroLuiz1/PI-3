@@ -17,9 +17,9 @@
                 <tbody>
                     @foreach($order->Products as $product)
                     <tr>
-                        <td>{{$product->pivot->name}}</td>
+                        <td>{{$product->pivot->name}} ({{ $product->pivot->size }})</td>
                         <td>{{$product->pivot->units}}</td>
-                        <td>{{$product->pivot->price}}</td>
+                        <td>{{number_format($product->pivot->price * $product->pivot->units,2)}}</td>
                     </tr>
                     @endforeach
                 </tbody>
