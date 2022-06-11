@@ -84,6 +84,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'image' => $image
             ]);
+
         } else {
             $product->update([
                 'name' => $request->name,

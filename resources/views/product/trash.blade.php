@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn btn-lg btn-success float-end me-5" href="{{route('category.create')}}">Criar Categoria</a>
 <div class="container mt-3">
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Cat ID</th>
@@ -21,6 +21,7 @@
             @foreach($products as $product)
             <tr>
                 <td>{{$product->id}}</td>
+                <td><img src="{{asset($product->image)}}" style="width: 35px; height:35px;"></td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->description}}</td>
                 <td>{{$product->Category->id}}</td>

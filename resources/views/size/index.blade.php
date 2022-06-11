@@ -8,8 +8,8 @@
             <tr>
                 <th>ID</th>
                 <th>Tamanho</th>
-                <th>Nome do Produto</th>
                 <th>Quantidade de Produtos no Estoque</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +17,8 @@
             <tr>
                 <td>{{$size->id}}</td>
                 <td>{{$size->name}}</td>
-                <td>{{$size->Product->name}}</td>
                 <td>{{$size->stock}}</td>
+                <td><a href="{{ route('size.edit', $size->id) }}">Editar</a></td>
             </tr>
             @endforeach
         <tbody>

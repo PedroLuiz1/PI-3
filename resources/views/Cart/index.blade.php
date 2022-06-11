@@ -22,7 +22,7 @@
                     <label for="state">Estado</label>
                     <input type="text" class="form-control" name="state" placeholder="Estado">
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary my-2 float-end">Comprar</button>
+                <button type="submit" class="btn btn-lg btn-dark my-2 float-end">Comprar</button>
             </form>
         </div>
         <div class="col-8">
@@ -44,13 +44,13 @@
                         <td>
                             <form action="{{ route('cart.store', [$item->Product->id, $item->Size->id]) }}" method="POST" style="display:inline">
                                 @csrf
-                                <button type="submit" class="btn btn-primary btn-sm">+</button>
+                                <button type="submit" class="btn btn-dark btn-sm">+</button>
                             </form>
                             {{$item->units}}
                             <form action="{{ route('cart.destroy', [$item->Product->id, $item->Size->id]) }}" method="POST" style="display:inline">
                                 @csrf
                                 @method("DELETE")
-                                <button type="submit" class="btn btn-primary btn-sm">-</button>
+                                <button type="submit" class="btn btn-dark btn-sm">-</button>
                             </form>
                         </td>
                     </tr>

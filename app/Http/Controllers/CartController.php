@@ -36,7 +36,7 @@ class CartController extends Controller
                 'units' => 1
             ]);
         }
-        session()->flash('success', 'O produto ('.$product->name.') foi adicionado.');
+        session()->flash('success', 'O produto ('.$product->name.') foi adicionado ao carrinho.');
         return redirect()->back();
     }
 

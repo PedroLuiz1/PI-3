@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <title>E-commerce</title>
+    <title>Outsiders Sports</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    e-Commerce
+                Outsiders Sports
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,12 +42,16 @@
                     </ul>
                     <form action="{{ route('search.product') }}" class="form-group my-0 mx-auto w-50">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Digite o nome do produto" name="s">
+                            <input type="text" class="text-light bg-dark form-control" placeholder="Digite o nome do produto" name="s">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text">Buscar</button>
                             </div>
                         </div>
                     </form>
+                    
+                    <a class="nav-item" href="{{ url('/cart') }}">
+                        Carrinho
+                    </a>
                     <ul class="navbar-nav ms-auto">
                         @guest
                             <li class="nav-item">
@@ -84,7 +88,7 @@
         @endif
         @yield('content')
     </main>
-    <footer class="container p-5 bg-primary text-white">
+    <footer class="container p-5 text-light bg-dark">
         <div class="row">
             <div class="col-sm-8 mb-5">
                 <h2 class="h4">Localização:</h2>
